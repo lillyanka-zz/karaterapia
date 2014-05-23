@@ -12,25 +12,36 @@ body{
 
 #wrapper{
   padding: 0 0 0 emCalc(30px);
-  #logo{
+  #logo a{
     text-indent: -9999px;
     background: url('../images/logo.png') no-repeat center center;
-    height: 196px;
-    width: 291px;
+    height: 190px;
+    width: 238px;
+    display: block;
+    background-size: 100%;
   }
   .top{
     position: fixed;
     bottom: 25px;
-    left: 15%;
+    left: 25%;
+    text-indent: -9999px;
+    background: rgba(36,39,41,0.3) url('../images/top.png') no-repeat center center;
+    height: 35px;
+    width: 35px;
+    z-index: 30000;
+    display: none;
   }
   nav{
-    margin-top: 10em;
+    margin-top: 4.5em;
     a{
       display: block;
       color: #4e5051;
       font-weight: bold;
-      font-size: emCalc(28px);
-      line-height: 1.3em;
+      font-size: 1.5em;
+      line-height: 1.6em;
+      &:hover, &.active{
+        color: #fff;
+      }
     }
   }
 }
@@ -52,17 +63,25 @@ h2{
   color: #fff;
   font-size: emCalc(54px);
   line-height: emCalc(18px);
-  margin-top: 2.125em;
+  margin-top: 1.125em;
 }
 
 h3{
   font-size: emCalc(31px);
   line-height: 1.1em;
   margin-top: 1.5em;
+  float: left;
+  width: 100%;
   .sup{
     font-size: 0.6em;
     line-height: 0.3em;
   }
+}
+
+h4{
+  color: #fff;
+  margin-bottom: 0;
+  font-size: emCalc(20px);
 }
 
 h5{
@@ -75,14 +94,32 @@ h6{
 }
 
 ul, ol{
-  margin-left: 1.2em;
+  margin-left: 1.5em;
+}
+
+ol{
+  li{
+    font-weight: bold;
+    span{
+      font-weight: 300;
+    }
+  }
 }
 
 .row{
   margin-left: 0;
   padding: emCalc(70px) 0;
   &#index{
-    padding-top: 8.375em;
+    padding-top: 3.375em;
+    h3{
+      font-size: 1.5em;
+      margin-top: 0.3em;
+      color: #414344;
+    }
+    p{
+      font-size: 0.9em;
+      line-height: 1.5em;
+    }
     .boxes{
       list-style: none;
       margin-left: 0;
@@ -91,7 +128,29 @@ ul, ol{
         float: left;
         margin-right: 1%;
         background: rgba(36,39,41,0.3);
-        padding: emCalc(13px);
+        padding: 0.8125em 0.5em;
+        position: relative;
+        a{
+          display: block;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          z-index: 2000;
+          &:hover+span{
+            opacity: 1;
+            color: #fff;
+          }
+          &:hover~h3{
+            opacity: 1;
+            color: #fff;
+          }
+          &:hover~p{
+            opacity: 1;
+            color: #fff;
+          }
+        }
         span{
           height: 34px;
           width: 100%;
@@ -116,15 +175,15 @@ ul, ol{
           }
         }
         h3{
-          margin-top: 0;
+          margin-top: emCalc(4px);
         }
         h3, p{
           color: #4e5051;
-          margin-bottom: 5px;
+          margin-bottom: 0px;
           text-align: center;
         }
         p{
-          font-size: 0.75em;
+          font-size: 0.875em;
         }
       }
     }
@@ -134,7 +193,8 @@ ul, ol{
 .fixed{
   position: fixed;
   height: 100%;
-  padding: emCalc(90px) 0 0 emCalc(30px);
+  padding: 2.75em 0 0 emCalc(30px);
+  z-index: 20000;
 }
 
 .sup{
@@ -150,6 +210,7 @@ ul, ol{
   font-family: 'Noto Sans', Helvetica, sans-serif;
   color: #4e5051;
   width: 100%;
+  font-weight: normal;
 }
 
 table{
@@ -166,6 +227,10 @@ table{
       color: #fff;
       background: rgba(36, 39, 41, 0.3);
       padding: 1em 0.625em;
+      line-height: 1.5em !important;
+      ul{
+        margin-bottom: 0;
+      }
       &.center{
         text-align: center;
       }
@@ -176,6 +241,9 @@ table{
         font-size: 2em;
         line-height: 0.5em;
         padding-bottom: 5px;
+        &.minus{
+          font-size: 3em;
+        }
       }
     }
   }
@@ -195,7 +263,7 @@ table{
   img{
     width: 100%;
     &.venn{
-      width: 18em;
+      width: 12em;
       margin: 0 auto;
       display: block;
     }
@@ -203,13 +271,13 @@ table{
   ul.pasos{
     list-style: none;
     margin: 0;
-    padding: 0 0 0 1em;
+    padding: 0;
     float: left;
     width: 100%;
     li{
       float: left;
-      width: 21%;
-      padding: 1.5em 0 1.5em 0.7125em;
+      width: 22%;
+      padding: 2em 0 1.5em 1.5em;
       span{
         font-size: emCalc(12px);
         line-height: 1.4em;
@@ -217,44 +285,103 @@ table{
       }
       &.item-1{
         background: url(../images/paso-1.png) no-repeat top left;
+        background-size: 100%;
       }
       &.item-2{
         background: url(../images/paso-2.png) no-repeat top left;
         margin-left: -2.7em;
         padding-left: 4em;
-        width: 28%;
+        width: 29%;
+        background-size: 100%;
       }
       &.item-3{
         background: url(../images/paso-3.png) no-repeat top left;
-        width: 39%;
+        width: 42%;
         margin-left: -3em;
         padding-left: 4.4em;
+        background-size: 100% 100%;
       }
       &.item-4{
         background: url(../images/paso-4.png) no-repeat top left;
-        margin-left: -3.5em;
-        width: 30%;
-        padding-left: 5.1em;
+        margin-left: -3.9em;
+        width: 31%;
+        padding-left: 5.4em;
+        background-size: 100%;
       }
     }
   }
 }
 
 footer{
-  padding: 0 0 1.5em 0 !important;
+  padding: 1em 0 1.5em 0 !important;
+  border-top: 1px solid rgba(78,80,81,0.8);
   p{
     margin: 0;
     font-family: 'Noto Sans', Helvetica, sans-serif;
     font-weight: 700;
     font-size: 0.75em;
     color: #4e5051;
+    a{
+      color: #4e5051;
+    }
+  }
+  .social{
+    padding-right: 0;
+    a{
+      display: block;
+      height: 22px;
+      width: 20px;
+      background: url(../images/social.png) no-repeat left top;
+      float: right;
+      margin-left:12px;
+      background-position: 0 -25px;
+      &:hover{
+        background-position: 0 0;
+      }
+      &.li{
+        background-position: -40px -25px;
+        &:hover{
+          background-position: -40px 0;
+        }
+      }
+      &.vi{
+        background-position: -80px -25px;
+        &:hover{
+          background-position: -80px 0;
+        }
+      }
+      &.fb{
+        background-position: -115px -25px;
+        &:hover{
+          background-position: -115px 0;
+        }
+      }
+    }
   }
 }
 
+form{
+  .large-6{
+    &:first-of-type{
+      padding-left: 0;
+    }
+    &:nth-of-type(2){
+      padding-right: 0;
+    }
+  }
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, textarea:focus {
+  color: #fff;
+  background: rgba(36,39,41, 0.3);
+  box-shadow: none;
+  border: 1px solid #4e5051;
+}
+
 input[type="text"], textarea{
-  background: #242729;
+  background: rgba(36,39,41, 0.3);
   border: none;
-  color: #4e5051;
+  color: #fff;
   font-size: emCalc(20px);
   font-weight: 300;
 }
@@ -262,9 +389,9 @@ input[type="text"], textarea{
 input[type="button"]{
   float: right;
   width: 50%;
-  background: #242729;
+  background: rgba(36,39,41, 0.3);
   border: none;
-  color: #fff;
+  color: rgba(255,255,255,0.6);
   line-height: 2em;
   font-weight: 300;
   font-size: 1.3em;
