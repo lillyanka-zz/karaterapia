@@ -15,15 +15,15 @@ body{
   #logo a{
     text-indent: -9999px;
     background: url('../images/logo.png') no-repeat center center;
-    height: 190px;
-    width: 238px;
+    height: 165px;
+    width: 100%;
     display: block;
-    background-size: 100%;
+    background-size: auto 100%;
   }
   .top{
     position: fixed;
     bottom: 25px;
-    left: 25%;
+    left: 65em;
     text-indent: -9999px;
     background: rgba(36,39,41,0.3) url('../images/top.png') no-repeat center center;
     height: 35px;
@@ -38,7 +38,10 @@ body{
       color: #4e5051;
       font-weight: bold;
       font-size: 1.5em;
-      line-height: 1.6em;
+      line-height: 1.5em;
+      &.inicio{
+        display: none;
+      }
       &:hover, &.active{
         color: #fff;
       }
@@ -64,6 +67,7 @@ h2{
   font-size: emCalc(54px);
   line-height: emCalc(18px);
   margin-top: 1.125em;
+  margin-bottom: 0.35em;
 }
 
 h3{
@@ -113,11 +117,10 @@ ol{
     padding-top: 3.375em;
     h3{
       font-size: 1.5em;
-      margin-top: 0.3em;
-      color: #414344;
+      margin-top: 0;
+      color: rgb(53,55,56);
     }
     p{
-      font-size: 0.9em;
       line-height: 1.5em;
     }
     .boxes{
@@ -256,7 +259,7 @@ table{
 // }
 
 .content{
-  padding: emCalc(35px) 0 emCalc(40px) 0;
+  padding: 1em 0 emCalc(40px) 0;
   overflow: hidden;
   float: left;
   width: 100%;
@@ -420,4 +423,139 @@ textarea{
 :-ms-input-placeholder {
    color: #4e5051;
    font-weight: 300;
+}
+
+/*------------------------------*/
+/*           TABLET             */
+/*------------------------------*/
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  #wrapper{
+    #logo a{
+      background-size: 100% 100%;
+    }
+    .content{
+      ul.pasos{
+        li{
+          padding: 2em 0 1.5em 1.5em;
+          &.item-1{
+            background-size: 100% 100%;
+          }
+          &.item-2{
+            margin-left: -3em;
+            padding-left: 4em;
+            width: 29%;
+            background-size: 100% 100%;
+          }
+          &.item-3{
+            width: 40%;
+            margin-left: -3.3em;
+            padding-left: 4.4em;
+            background-size: 100% 100%;
+          }
+          &.item-4{
+            margin-left: -4em;
+            width: 31%;
+            padding-left: 5.4em;
+            background-size: 100% 100%;
+          }
+        }
+      }
+    }
+    .top{
+      position: fixed;
+      bottom: 25px;
+      left: 15em;
+      text-indent: -9999px;
+      background: rgba(36,39,41,0.3) url('../images/top.png') no-repeat center center;
+      height: 35px;
+      width: 35px;
+      z-index: 30000;
+      display: none;
+    }
+  }
+}
+
+/*------------------------------*/
+/*           MOBILE             */
+/*------------------------------*/
+
+@media only screen and (max-width: 40em) {
+  #wrapper{
+    padding: 0;
+    h3{
+      margin-top: 0.75em;
+    }
+    #logo{
+      a{
+        height: 4em;
+      }
+    }
+    nav{
+      margin: 0;
+      a{
+        font-size: 1em;
+        padding: 0.6em;
+        float: left;
+        &.inicio{
+          display: block;
+        }
+      }
+    }
+    h2{
+      font-size: 3em;
+    }
+    .fixed{
+      padding-top: 0;
+      height: auto;
+      background: #0b0f11;
+    }
+    .row {
+      margin-left: 0;
+      padding: 13.375em 0 2em;
+    }
+    #index{
+      padding-top: 16.375em;
+      .boxes{
+        li{
+          p{
+            font-size: 0.75em;
+          }
+        }
+      }
+    }
+    .top{
+      display: none !important;
+    }
+    .pasos{
+      li{
+        &.item-1{
+          background-size: 100% 100%;
+          margin-left: -0.5em;
+        }
+        &.item-2{
+          margin-left: -3em;
+          padding-left: 4em;
+          width: 31%;
+        }
+        &.item-3{
+          width: 41%;
+          margin-left: -3.2em;
+          padding-left: 4.4em;
+          background-size: 100% 100%;
+        }
+        &.item-4{
+          margin-left: -3.9em;
+          width: 32%;
+          padding-left: 5.1em;
+          background-size: 100% 100%;
+        }
+      }
+    }
+    form{
+      .small-12{
+        padding: 0;
+      }
+    }
+  }
 }
